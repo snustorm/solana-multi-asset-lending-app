@@ -140,7 +140,7 @@ pub fn process_withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
     
 
     // Now call `transfer_tokens` after all mutable borrows are finished
-    transfer_tokens(ctx, amount)?;
+    transfer_tokens(ctx, amount * AMOUNT_SCALE)?;
     msg!("Withdrawal successful");
 
     Ok(())

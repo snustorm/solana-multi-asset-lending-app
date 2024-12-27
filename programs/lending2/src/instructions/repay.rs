@@ -116,7 +116,7 @@ pub fn process_repay(ctx: Context<Repay>, amount: u64) -> Result<()> {
         .checked_sub(scaled_amount)
         .ok_or(ErrorCode::MathOverflow)?;
 
-    transfer_tokens(ctx, amount)?;
+    transfer_tokens(ctx, scaled_amount)?;
 
 
     Ok(())   
@@ -139,7 +139,6 @@ fn transfer_tokens(ctx: Context<Repay>, amount: u64) -> Result<()> {
     );
 
     let decimals = ctx.accounts.mint.decimals;
-    require!(decimals > 0, ErrorCode::InvalidDecimals);
 
     token_interface::transfer_checked(cpi_ctx, amount, decimals)?;
 

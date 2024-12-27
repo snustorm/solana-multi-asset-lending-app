@@ -5,10 +5,10 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-lending2 = "D1HBoAv1A5Jy72DaStawF5UkZCTMexXjvVbb1h5bNV5f"
+lending2 = "AjnXUaDfPD88JyARjMkYaCDnpbWuGiRZvHdvKfQbGZnt"
 
 [programs.localnet]
-lending2 = "D1HBoAv1A5Jy72DaStawF5UkZCTMexXjvVbb1h5bNV5f"
+lending2 = "AjnXUaDfPD88JyARjMkYaCDnpbWuGiRZvHdvKfQbGZnt"
 
 [registry]
 url = "https://api.apr.dev"
