@@ -126,7 +126,6 @@ pub fn process_deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
 
     user_token_account.last_update = Clock::get()?.unix_timestamp;
 
-   
 
     Ok(())
 }

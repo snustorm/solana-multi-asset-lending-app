@@ -1,8 +1,6 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token_interface::Mint;
-
 use crate::state::UserTokenAccount;
-
 
 #[derive(Accounts)]
 pub struct InitUserTokenAccount<'info> {
@@ -26,8 +24,6 @@ pub struct InitUserTokenAccount<'info> {
 pub fn process_init_user_token_account(ctx: Context<InitUserTokenAccount>, name: String, mint: Pubkey,) -> Result<()> {
     let user_token_account = &mut ctx.accounts.user_token_account;
 
-    // Initialize the user-token account fields
-    println!("Init User Token Account");
     user_token_account.owner = ctx.accounts.signer.key(); // User's address
     user_token_account.mint = mint.key();    
     user_token_account.name = name;

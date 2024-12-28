@@ -82,17 +82,14 @@ pub fn process_repay(ctx: Context<Repay>, amount: u64) -> Result<()> {
     let token_price = price_data.price as f64 * 10f64.powi(price_data.exponent);
     msg!("Token Price: {}", token_price);
 
-
     let repay_value = (amount as f64 * token_price).round() as u64;
     msg!("Withdrawal Value: {}", repay_value);
-
 
     require!(
         user_token_account.borrowed_amount >= amount,
         ErrorCode::OverRepay
     );
     
-
     // Perform all state updates first
     msg!("Borrowed Amount: {}", user_token_account.borrowed_amount);
     user_token_account.borrowed_amount = user_token_account
@@ -117,7 +114,6 @@ pub fn process_repay(ctx: Context<Repay>, amount: u64) -> Result<()> {
         .ok_or(ErrorCode::MathOverflow)?;
 
     transfer_tokens(ctx, scaled_amount)?;
-
 
     Ok(())   
 }
