@@ -48,7 +48,7 @@ pub struct Deposit<'info> {
         seeds = [b"user-token", signer.key().as_ref(), mint.key().as_ref()],
         bump,
     )]
-    pub user_token_account: Account<'info, UserTokenAccount>,  // Changed to UserTokenAccount
+    pub user_token_account: Account<'info, UserTokenAccount>, 
 
     #[account(
         mut,
@@ -125,6 +125,7 @@ pub fn process_deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
     user_token_account.deposit_shares += scaled_amount;
 
     user_token_account.last_update = Clock::get()?.unix_timestamp;
+
 
 
     Ok(())

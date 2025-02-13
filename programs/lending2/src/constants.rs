@@ -10,3 +10,4 @@ pub const MAX_LTV_RATE_SCALE: u64 = 10_000;
 
 #[constant]
 pub const AMOUNT_SCALE: u64 = 1_000_000_000;
+
